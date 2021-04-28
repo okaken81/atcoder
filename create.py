@@ -3,8 +3,8 @@ def main():
     import os
     import shutil
 
-    main_title = 'abc191'
-    sub_title = ['a', 'b', 'c', 'd', 'e', 'f']
+    main_title = 'abc180'
+    sub_title = ['a', 'b', 'c']
     # sub_title = ['d']
 
     dir = './atcoder/'
