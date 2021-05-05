@@ -2,14 +2,15 @@ import io
 import sys
 
 _INPUT = """\
-4
+
 """
 sys.stdin = io.StringIO(_INPUT)
 
 # ----------------------------------------------------------
 
 def main():
-
-    N = int(input())
+    import sys
+    from builtins import map, int, list, range 
+    readline = sys.stdin.readline
 
 main()
