@@ -10,12 +10,13 @@ def main():
     dir = './atcoder/'
 
     for st in sub_title:
-        if os.path.isfile(dir + main_title + '_' + st + '.py'):
-            print(main_title + '_' + st + '.py exists')
-        elif os.path.isfile(dir + 'archive/' + main_title + '_' + st + '.py'):
-            print(main_title + '_' + st + '.py exists in archive')
+        file_name = main_title + '_' + st + '.py'
+        if os.path.isfile(dir + file_name):
+            print(file_name + ' exists')
+        elif os.path.isfile(dir + 'archive/' + file_name):
+            print(file_name + ' exists in archive')
         else:
-            shutil.copyfile(dir + 'format.py', dir + main_title + '_' + st + '.py')
-            print(main_title + '_' + st + '.py created')
+            shutil.copyfile(dir + 'format.py', dir + file_name)
+            print(file_name + ' created')
 
 main()
