@@ -3,9 +3,9 @@ def main():
     import os
     import shutil
 
-    main_title = 'arc114'
+    main_title = 'arc118'
     # sub_title = ['a', 'b', 'c', 'd', 'e', 'f']
-    sub_title = ['a', 'b']
+    sub_title = ['c']
 
     dir = './atcoder/'
 
