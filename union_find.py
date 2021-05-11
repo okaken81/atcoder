@@ -1,14 +1,3 @@
-import io
-import sys
-
-_INPUT = """\
-3
-1 2 3
-
-"""
-sys.stdin = io.StringIO(_INPUT)
-
-# ----------------------------------------------------------
 
 class UnionFind():
     def __init__(self, n):
@@ -56,19 +45,3 @@ class UnionFind():
 
     def __str__(self):
         return '\n'.join('{}: {}'.format(r, self.members(r)) for r in self.roots())
-
-def main():
-    N = int(input())
-    F = list(map(int, input().split()))
-
-    uf = UnionFind(N)
-
-    for i in range(N):
-        uf.union(i, F[i]-1)
-    
-    n = uf.group_count()
-
-    print((2**n - 1) % 998244353)
-
-if __name__ == '__main__':
-    main()

@@ -13,4 +13,5 @@ def main():
     from builtins import map, int, list, range 
     readline = sys.stdin.readline
 
-main()
+if __name__ == '__main__':
+    main()

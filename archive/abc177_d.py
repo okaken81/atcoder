@@ -2,29 +2,17 @@ import io
 import sys
 
 _INPUT = """\
-8 9
-0 1 2
-0 3 2
-1 1 3
-1 1 4
-0 2 4
-1 4 1
-0 4 2
-0 0 0
-1 0 0
+10 4
+3 1
+4 1
+5 9
+2 6
+
 """
 sys.stdin = io.StringIO(_INPUT)
 
-# import numpy as np
-# import pandas as pd
-# import math
-# import itertools
+# ----------------------------------------------------------
 
-# a = list(map(int, input().split()))
-# n = int(input())
-# d, t, s = map(int, input().split())
-
-#### ----------------------------------
 class UnionFind():
     def __init__(self, n):
         self.n = n
@@ -71,7 +59,21 @@ class UnionFind():
 
     def __str__(self):
         return '\n'.join('{}: {}'.format(r, self.members(r)) for r in self.roots())
-#### ----------------------------------
 
-uf = UnionFind(6)
-print(type(uf))
+def main():
+    import sys
+    from builtins import map, int, list, range 
+    readline = sys.stdin.readline
+
+    N, M = map(int, readline().split())
+
+    uf  = UnionFind(N)
+
+    for _ in range(M):
+        a, b = map(int, readline().split())
+        uf.union(a-1, b-1)
+
+    print(-min(uf.parents))
+
+if __name__ == '__main__':
+    main()
