@@ -28,5 +28,5 @@ def main():
                 if len(A) == N:
                     print(*A)
                     exit()
-    
+
 main()
