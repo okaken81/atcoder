@@ -2,12 +2,8 @@ import io
 import sys
 
 _INPUT = """\
-5
-OR
-OR
-OR
-OR
-OR
+apple
+apple
 
 """
 sys.stdin = io.StringIO(_INPUT)
@@ -15,15 +11,16 @@ sys.stdin = io.StringIO(_INPUT)
 # ----------------------------------------------------------
 
 def main():
-    N = int(input())
+    S = input()
+    T = input()
 
-    ans = 1
+    ans = 0
 
-    for i in range(N):
-        S = input()
-        if S == 'OR':
-            ans += 2**(i+1)
+    for i in range(len(S)):
+        if S[i] != T[i]:
+            ans += 1
 
     print(ans)
 
-main()
+if __name__ == '__main__':
+    main()
