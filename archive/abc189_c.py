@@ -10,34 +10,21 @@ sys.stdin = io.StringIO(_INPUT)
 
 #### ----------------------------------
 
-n = int(input())
-a = list(map(int, input().split()))
+def main():
+    N = int(input())
+    A = list(map(int, input().split()))
 
-ans = 0
+    ans = 0
 
-for i in range(n):
-    m_min = a[i]
-    for j in range(i,n):
-        if a[j] < m_min:
-            m_min = a[j]
-        if m_min * (j-i+1) > ans:
-            ans = m_min * (j-i+1)
-        
-print(ans)
+    for l in range(N):
+        o_min = A[l]
+        for r in range(l,N):
+            if A[r] < o_min:
+                o_min = A[r]
+            if o_min * (N-l) < ans:
+                break
+            if ans < o_min * (r-l+1):
+                ans = o_min * (r-l+1)
+    print(ans)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+main()
