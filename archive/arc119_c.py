@@ -9,3 +9,19 @@ _INPUT = """\
 sys.stdin = io.StringIO(_INPUT)
 
 # ----------------------------------------------------------
+
+def main():
+    import numpy as np
+    N = int(input())
+    A = np.array(input().split(), np.int64)
+    A[::2] *= -1
+    A_cum = np.append(0, np.cumsum(A))
+    count = {}
+    ans = 0
+    for x in A_cum:
+        ans += count.get(x,0)
+        count[x] = count.get(x,0) + 1
+    return ans
+
+if __name__ == '__main__':
+    print(main())
