@@ -9,6 +9,9 @@ sys.stdin = io.StringIO(_INPUT)
 # ----------------------------------------------------------
 
 def main():
+    import sys
+    from builtins import map, int, list, range 
+    readline = sys.stdin.readline
 
 if __name__ == '__main__':
     main()

@@ -2,13 +2,11 @@ import io
 import sys
 
 _INPUT = """\
+3100
 
 """
 sys.stdin = io.StringIO(_INPUT)
 
 # ----------------------------------------------------------
 
-def main():
-
-if __name__ == '__main__':
-    main()
+print(-int(input())%1000)

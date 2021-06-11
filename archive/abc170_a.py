@@ -2,13 +2,12 @@ import io
 import sys
 
 _INPUT = """\
+1 2 0 4 5
 
 """
 sys.stdin = io.StringIO(_INPUT)
 
 # ----------------------------------------------------------
 
-def main():
-
-if __name__ == '__main__':
-    main()
+X = list(map(int, input().split()))
+print(X.index(0)+1)

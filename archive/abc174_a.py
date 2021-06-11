@@ -2,13 +2,13 @@ import io
 import sys
 
 _INPUT = """\
-
+25
 """
 sys.stdin = io.StringIO(_INPUT)
 
 # ----------------------------------------------------------
 
-def main():
-
-if __name__ == '__main__':
-    main()
+if int(input()) >= 30:
+    print('Yes')
+else:
+    print('No')
