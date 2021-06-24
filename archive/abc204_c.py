@@ -2,7 +2,10 @@ import io
 import sys
 
 _INPUT = """\
-3 0
+3 3
+1 2
+2 3
+3 2
 
 """
 sys.stdin = io.StringIO(_INPUT)
@@ -10,23 +13,22 @@ sys.stdin = io.StringIO(_INPUT)
 # ----------------------------------------------------------
 
 def main():
+    import sys
+    sys.setrecursionlimit(10000)
     N, M = map(int, input().split())
-    AB = [[0] * N for _ in range(N)]
+    G = [[] for _ in range(N)]
+    for i in range(M):
+        A, B = map(int, input().split())
+        G[A-1].append(B-1)
+    def dfs(v):
+        if temp[v]: return
+        temp[v] = True
+        for vv in G[v]: dfs(vv)
+    ans = 0
     for i in range(N):
-        AB[i][i] = 1
-    for _ in range(M):
-        a, b = map(int, input().split())
-        AB[a-1][b-1] = 1
-        i_list = []
-        for i in range(N):
-            if AB[i][a-1] == 1 and AB[i][b-1] == 0:
-                AB[i][b-1] = 1
-                i_list.append(i)
-        for i in range(N):
-            if AB[b-1][i] == 1 and AB[a-1][i] == 0:
-                AB[a-1][i] = 1
-                for j in i_list:
-                    AB[j][i] = 1
-    print(sum(sum(AB, [])))
+        temp = [False] * N
+        dfs(i)
+        ans += sum(temp)
+    print(ans)
 if __name__ == '__main__':
     main()
